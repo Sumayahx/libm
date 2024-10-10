@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,11 +83,11 @@ WSGI_APPLICATION = 'libmgmt.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'my_django_db',
-        'USER': 'root',
-        'PASSWORD': '971003chan',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'NAME': os.getenv('my_django_db'),
+        'USER': os.getenv('root'),
+        'PASSWORD': os.getenv('971003chan'),
+        'HOST': os.getenv('127.0.0.1'),
+        'PORT': os.getenv('3306'),
 
     }
 }
